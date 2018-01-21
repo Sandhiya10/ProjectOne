@@ -6,18 +6,29 @@ import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.model.Authorities;
+import com.niit.model.Cart;
+import com.niit.model.Category;
+import com.niit.model.OrderDetails;
 import com.niit.model.Product;
+import com.niit.model.Subscribe;
+import com.niit.model.Supplier;
+import com.niit.model.User;
 @Configuration
 @EnableTransactionManagement
+@ComponentScan("com.niit")
 public class DBConfiguration {
 
-	@Bean
+	@Autowired
+	@Bean(name="datasource")
 	public DataSource getDataSource()
 	{
 	BasicDataSource datasource=new BasicDataSource();
@@ -38,7 +49,7 @@ public class DBConfiguration {
 		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 		hibernateProperties.setProperty("hibernate.show_sql", "true");
 		lsf.addProperties(hibernateProperties);
-		Class classes[]=new Class[]{Product.class};
+		Class classes[]=new Class[]{Product.class,User.class,Authorities.class,Category.class,Supplier.class,Cart.class,OrderDetails.class,Subscribe.class,};
 	    return lsf.addAnnotatedClasses(classes).buildSessionFactory();
 	}
 	@Bean

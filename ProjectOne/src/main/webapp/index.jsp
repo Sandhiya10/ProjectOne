@@ -59,8 +59,8 @@ background-color:#151c14
       <li><a href="#">Products</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <li ><a href="#" >Login</a></li>
-    <li ><a href="#" >Register</a></li>
+    <li ><a href="login" >Login</a></li>
+    <li ><a href="register" >Register</a></li>
     </ul>
     </nav>
      <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -76,7 +76,8 @@ background-color:#151c14
     <!-- Wrapper for slides -->
     <div class="carousel-inner"  >
       <div class="item active">
-        <img class="img-responsive center-block" src="WEB-INF/resources/Images/Booktt1.png" alt="Book1" style="width:100%;">
+        <img class="img-responsive center-block" src="resources/Images/Booktt1.png" alt="Book1" style="width:100%;">
+      	
       </div>
 
       <div class="item">
